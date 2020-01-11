@@ -13,7 +13,7 @@ import br.com.martins.apiweb.ws.model.Cliente;
 public class ClienteServices {
     
     @Autowired
-    private ClienteRepository clienteRepository;
+    ClienteRepository clienteRepository;
     
     //Business 
     public Cliente gravar(Cliente cliente) {
