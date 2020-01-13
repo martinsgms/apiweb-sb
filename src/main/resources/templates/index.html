@@ -4,34 +4,53 @@
     <head>
         <meta charset="utf-8">
         <title>ApiWeb | Home</title>
-    
+        
+        <!-- Angular -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
         <script src="./js/app.js"></script>
         
         <style>
             table, th, td{border: 1px solid gray}
-            th, td{padding:5px}
+            th, td, div{padding:5px}
         </style>
     </head>
-    
-    <body ng-controller="index-controller">
-    
-       Olá {{ nome + ' ' + sobrenome }}
-       
-       <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="c in clientes">
-                    <td>{{ c.id }}</td>
-                    <td>{{ c.nome }}</td>
-                </tr>
-            </tbody>
-       </table>
+        
+    <body ng-controller="cliente-controller">
+         
+        <div>
+            Olá {{ nome + ' ' + sobrenome }} !!
+        </div>   
+        
+        <div>
+            <form>
+                <input type="text" ng-model="cliente.id" value="cliente.id" readonly>                
+                <input type="text" ng-model="cliente.nome" value="cliente.nome">
+                <button ng-click="salvarCliente()">Salvar</button>       
+                <button ng-click="limpar()">Limpar</button>
+            </form>
+        </div>
+            
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in clientes">
+                        <td>{{ c.id }}</td>
+                        <td>{{ c.nome }}</td>
+                        <td>
+                            <button ng-click="preEdit(c)">Editar</button>
+                            <button ng-click="excluirCliente(c)">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>   
     
     </body>
     
