@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col s12">
+    <h3>Cadastro de Clientes</h3>
+    <hr>
+        <div class="row">
+            <form class="col s12">
+            
+                <div class="input-field col s6">
+                    <input type="text" ng-model="cliente.nome" value="cliente.nome" placeholder="Insira o nome aqui">
+                </div>
+                <div class="input-field col s6">
+                    <button class="btn waves-effect waves-light" ng-click="salvarCliente()">
+                        Salvar<i class="material-icons right">send</i>
+                    </button>       
+                    <button class="btn waves-effect waves-light" ng-click="limpar()">
+                        Limpar<i class="material-icons right">clear_all</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+            
+        <div class="row">
+            <div class="col s12">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="c in clientes">
+                            <td>{{ c.id }}</td>
+                            <td>{{ c.nome }}</td>
+                            <td>
+                                <button class="btn-floating" ng-click="preEdit(c)">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button class="btn-floating" ng-click="excluirCliente(c)">
+                                    <i class="material-icons right">delete</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>   
+    </div>
+</div>
