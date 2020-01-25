@@ -1,24 +1,36 @@
 <div class="row">
     <div class="col s12">
-    <h3>Cadastro de Clientes</h3>
-    <hr>
-        <div class="row">
-            <form class="col s12">
-            
-                <div class="input-field col s6">
-                    <input type="text" ng-model="cliente.nome" value="cliente.nome" placeholder="Insira o nome aqui">
+        <form novalidate name="formCliente" class="col s12">
+            <div class="row">
+                <div class="input-field col s3">
+                    <input type="text" name="txtNome" ng-minlength="2" ng-model="cliente.nome" value="cliente.nome" placeholder="Insira o nome aqui" required class="validate">
+                    <span class="helper-text" data-error="O campo nome deve ter no mínimo 2 caracteres" ng-show="formCliente.txtNome.minlength">O campo nome deve ter no mínimo 2 caracteres</span>
+                    <span class="helper-text" data-error="Preencha o campo Nome" ng-show="(formCliente.txtNome.$error.required && formCliente.txtNome.$dirty) || (formCliente.txtNome.$touched && (formCliente.txtNome.$dirty == false))"></span>
                 </div>
-                <div class="input-field col s6">
-                    <button class="btn waves-effect waves-light" ng-click="salvarCliente()">
+                <div class="input-field col s3">
+                    <input type="email" name="txtEmail" ng-model="cliente.email" value="cliente.email" placeholder="Insira o email aqui" required class="validate">
+                    <span class="helper-text" data-error="Preencha o campo Email" ng-show="(formCliente.txtEmail.$error.required && formCliente.txtEmail.$dirty) || (formCliente.txtEmail.$touched && (formCliente.txtEmail.$dirty == false))"></span>
+                    <span class="helper-text" data-error="Email invalido" ng-show="formCliente.txtEmail.$error.email"></span>
+                </div>
+                <div class="col s3">
+                    <label>Estado</label>
+                    <select class="browser-default">
+                        <option value="" disabled selected>Selecione...</option>
+                            <option ng-repeat="e in estados" value="{{e.id}}">{{ e.estado }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light" ng-click="salvarCliente()" ng-disabled="formCliente.$invalid" >
                         Salvar<i class="material-icons right">send</i>
                     </button>       
-                    <button class="btn waves-effect waves-light" ng-click="limpar()">
+                    <button class="btn waves-effect waves-light" ng-click="limpar()" ng-disabled="formCliente.$invalid">
                         Limpar<i class="material-icons right">clear_all</i>
                     </button>
                 </div>
-            </form>
-        </div>
-            
+            </div>
+        </form>
         <div class="row">
             <div class="col s12">
                 <table class="striped">

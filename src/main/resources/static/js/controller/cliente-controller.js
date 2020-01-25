@@ -35,6 +35,7 @@ appCliente.controller("cliente-controller", function($scope, $http) {
         }).then(function(response) {
             $scope.listarClientes();
             $scope.limpar();
+            $scope.formCliente.$setPristine(true);
             
         }, function(response) {
             console.log(response.status);

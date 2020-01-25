@@ -2,7 +2,9 @@
 <html ng-app="appCliente">
     
     <head>
-        <meta charset="utf-8">
+        <base href="/" />
+        
+        <meta charset="UTF-8">
         <title>ApiWeb | Home</title>
         
         <!-- Angular -->
@@ -19,8 +21,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-        <base href="/" />
-        
         <style>
             nav{background-color:#00695C}
         </style>
@@ -37,16 +37,15 @@
             </div>
             <div class="nav-content">
               <ul class="tabs tabs-transparent">
-                <li class="tab"><a href="/cliente">Clientes</a></li>
-                <li class="tab"><a href="/cidade">Cidades</a></li>
-                <li class="tab"><a href="/estado">Estado</a></li>
+                <li class="tab"><a href="/clientes">Clientes</a></li>
+                <li class="tab"><a href="/cidades">Cidades</a></li>
+                <li class="tab"><a href="/estados">Estado</a></li>
               </ul>
             </div>
           </nav>
           
           <div ng-view="ng-view">
           </div>
-    
     </body>
     
 </html>

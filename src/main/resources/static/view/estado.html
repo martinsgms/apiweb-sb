@@ -1,3 +1,46 @@
-<div>
-Tela Estado
+<div class="row">
+    <form name="formEstado" class="col s12">
+        <div class="input-field col s12">
+            <input type="text" name="txtUf" ng-minlength="2" ng-maxlength="2" ng-model="estado.uf" value="estado.uf" placeholder="Insira a UF aqui" required class="validate">
+            <span class="helper-text" data-error="Preencha o campo UF" ng-show="(formEstado.txtUf.$error.required && formEstado.txtUf.$dirty) || (formEstado.txtUf.$touched && (formEstado.txtUf.$dirty == false))"></span>
+        </div>
+         <div class="row">
+            <div class="input-field col s12">
+                <button class="btn waves-effect waves-light" ng-click="salvarCliente()" ng-disabled="formEstado.$invalid" >
+                    Salvar<i class="material-icons right">send</i>
+                </button>       
+                <button class="btn waves-effect waves-light" ng-click="limpar()" ng-disabled="formEstado.$invalid">
+                    Limpar<i class="material-icons right">clear_all</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <div class="col s12">
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Estado</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="e in estados">
+                    <td>{{ e.id }}</td>
+                    <td>{{ e.estado }}</td>
+                    <td>
+                        <button class="btn-floating" ng-click="preEdit(c)">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button class="btn-floating" ng-click="excluirEstado(c)">
+                            <i class="material-icons right">delete</i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
