@@ -38,6 +38,8 @@
                         <tr>
                             <th>Id</th>
                             <th>Nome</th>
+                            <th>Email</th>
+                            <th>UF</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -45,6 +47,8 @@
                         <tr ng-repeat="c in clientes">
                             <td>{{ c.id }}</td>
                             <td>{{ c.nome }}</td>
+                            <td>{{ c.email }}</td>
+                            <td>{{ c.uf }}</td>
                             <td>
                                 <button class="btn-floating" ng-click="preEdit(c)">
                                     <i class="material-icons">edit</i>
